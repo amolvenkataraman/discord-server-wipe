@@ -1,6 +1,6 @@
-# ☢️ NukeBot
+# ☢️ discord-server-wipe
 
-A Discord bot for bulk deleting messages and kicking members. Used for decommissioning servers.
+A self-hosted Discord bot for decommissioning a server: bulk-delete every message, then kick every member. (Formerly NukeBot; the bot still calls itself that in Discord.)
 
 **WARNING**: This bot has been created with the help of AI coding tools. While effort has been made to ensure a lack of bugs or issues, it is possible for some bugs or issues to exist. Please use this bot at your own risk.
 
@@ -14,13 +14,36 @@ The bot also allows for deleting all messages in one channel, or deleting all me
 
 ## Commands
 
+Both commands are restricted to server administrators and ask for confirmation before doing anything.
+
 | Command | Description |
 |---------|-------------|
 | `/nuke` | Delete every message on the server. Optional `channel` and `user` filters. Picking no filters wipes ALL channels. |
-| `/nukefinish` | Kick every member from the server, then the bot leaves. |
+| `/nukefinish` | Kick every member from the server (the owner can't be kicked and is skipped), then the bot leaves. |
 
-## Setup Instructions
+## Setup
 
-**COMING SOON**
+Getting Discord's approval for a public bot with privileged intents takes a long time, so there is no hosted version. You run your own copy:
 
-Note that due to the long process of getting Discord's approval for public previleged intent bots, I am unable to provide a publicly accessible bot. You will need to create a bot account on the Discord Developer Portal and host the bot yourself. More details about this process will be added here soon.
+1. **Create the bot.** In the [Discord Developer Portal](https://discord.com/developers/applications), create an application, open **Bot**, and copy its token. On the same page, turn on the **Server Members** and **Message Content** privileged intents.
+2. **Invite it.** Under **OAuth2 → URL Generator**, tick the `bot` and `applications.commands` scopes and the **Administrator** permission, then open the generated URL and add the bot to your server. Move the bot's role above every member it should be able to kick.
+3. **Configure.**
+   ```bash
+   git clone https://github.com/amolvenkataraman/discord-server-wipe.git
+   cd discord-server-wipe
+   cp .env.example .env   # set DISCORD_TOKEN; optionally GUILD_ID
+   ```
+   Setting `GUILD_ID` to your server's ID makes the slash commands appear instantly. Without it they sync globally, which can take up to an hour.
+4. **Run.**
+   ```bash
+   python3 -m venv .venv && source .venv/bin/activate
+   pip install -r requirements.txt
+   python bot.py
+   ```
+   Keep it running until the wipe finishes. Deleting messages older than 14 days is rate limited by Discord, so a large server can take hours.
+
+Export anything you want to keep first (for example with [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter)). Deleted messages can't be recovered.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
