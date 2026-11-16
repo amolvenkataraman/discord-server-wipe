@@ -1,16 +1,16 @@
 <!-- header:start -->
 <div align="center">
 
-<img alt="discord-server-wipe: Decommission a Discord server: bulk-delete every message, then kick every member." src=".github/assets/banner.svg" width="100%">
+<img alt="discord-server-wipe: Decommission a Discord server: bulk-delete every message, then kick every member." src="https://raw.githubusercontent.com/amolvenkataraman/discord-server-wipe/main/.github/assets/banner.svg" width="100%">
 
 ![python: 3](https://img.shields.io/badge/python-3-0f6f68?labelColor=15181c&color=0f6f68)
-[![licence: MIT](https://img.shields.io/badge/licence-MIT-0f6f68?labelColor=15181c&color=0f6f68)](LICENSE)
+[![licence: MIT](https://img.shields.io/badge/licence-MIT-0f6f68?labelColor=15181c&color=0f6f68)](https://github.com/amolvenkataraman/discord-server-wipe/blob/main/LICENSE)
 
 [Why](#why-does-it-exist) · [Commands](#commands) · [Setup](#setup)
 
 </div>
 
-<a href="https://haiscale.amolven.com/A1/"><img alt="HAI Scale A1, Mostly automated. Most of the code was written by AI coding agents. I directed the design, reviewed the changes and tested it on my own servers. Deleted messages can't be recovered. Provided as is, with no warranty. Use it at your own risk." src=".github/assets/hai.svg" width="100%"></a>
+<a href="https://haiscale.amolven.com/A1/"><img alt="HAI Scale A1, Mostly automated. Most of the code was written by AI coding agents. I directed the design, reviewed the changes and tested it on my own servers. Deleted messages can't be recovered. Provided as is, with no warranty. Use it at your own risk." src="https://raw.githubusercontent.com/amolvenkataraman/discord-server-wipe/main/.github/assets/hai.svg" width="100%"></a>
 <!-- header:end -->
 
 A self-hosted Discord bot for decommissioning a server: bulk-delete every message, then kick every member. (Formerly NukeBot; the bot still calls itself that in Discord.)
